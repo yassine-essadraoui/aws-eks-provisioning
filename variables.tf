@@ -18,6 +18,6 @@ variable "cluster_name" {
 
 variable "ebs_csi_policy_arn" {
   description = "AWS managed EBS CSI policy arn"
-  type = string
-  default = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
