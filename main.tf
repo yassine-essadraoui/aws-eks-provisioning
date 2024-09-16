@@ -14,8 +14,23 @@ resource "aws_eks_addon" "ebs-csi" {
   addon_name               = "aws-ebs-csi-driver"
   addon_version            = "v1.28.0-eksbuild.1"
   service_account_role_arn = module.irsa-ebs-csi.iam_role_arn
+  configuration_values = jsonencode({
+    controller = {
+      resources = {
+        limits = {
+          cpu    = "100m"
+          memory = "150Mi"
+        }
+        requests = {
+          cpu    = "10m"
+          memory = "15Mi"
+        }
+      }
+    }
+  })
   tags = {
     "eks_addon" = "ebs-csi"
+    "terraform" = "true"
   }
 }
 
@@ -24,4 +39,13 @@ data "aws_availability_zones" "available" {
     name   = "opt-in-status"
     values = ["opt-in-not-required"]
   }
+}
+
+data "aws_caller_identity" "current" {}
+
+resource "aws_iam_role" "roles" {
+  count = length(var.iam_roles)
+
+  name               = var.iam_roles[count.index].iam_role_name
+  assume_role_policy = var.iam_roles[count.index].iam_assume_role_policy
 }

@@ -21,3 +21,10 @@ variable "ebs_csi_policy_arn" {
   type        = string
   default     = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
+
+variable "iam_roles" {
+  type = list(object({
+    iam_role_name          = string
+    iam_assume_role_policy = string
+  }))
+}
