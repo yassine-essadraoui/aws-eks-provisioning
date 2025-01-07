@@ -1,5 +1,9 @@
-vpc_name     = "vpc-for-eks"
-cluster_name = "eks"
+vpc_name             = "vpc-for-eks"
+vpc_cidr_range       = "10.0.0.0/16"
+enable_nat_gateway   = true
+single_nat_gateway   = true
+enable_dns_hostnames = true
+cluster_name         = "eks"
 iam_roles = [
   {
     iam_role_name          = "KubeAdmin"
@@ -9,7 +13,7 @@ iam_roles = [
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam::<your-account-id-here>:root"
+          "AWS": "arn:aws:iam:::root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -24,7 +28,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam::<your-account-id-here>:root"
+          "AWS": "arn:aws:iam:::root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -39,7 +43,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam::<your-account-id-here>:root"
+          "AWS": "arn:aws:iam:::root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -54,7 +58,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam::<your-account-id-here>:root"
+          "AWS": "arn:aws:iam:::root"
         },
         "Action": "sts:AssumeRole"
       }]
