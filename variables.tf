@@ -10,6 +10,26 @@ variable "vpc_name" {
   default     = ""
 }
 
+variable "vpc_cidr_range" {
+  type    = string
+  default = ""
+}
+
+variable "enable_nat_gateway" {
+  type    = bool
+  default = false
+}
+
+variable "single_nat_gateway" {
+  type    = bool
+  default = true
+}
+
+variable "enable_dns_hostnames" {
+  type    = bool
+  default = true
+}
+
 variable "cluster_name" {
   description = "your eks cluster name"
   type        = string
