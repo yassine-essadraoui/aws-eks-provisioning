@@ -13,7 +13,7 @@ iam_roles = [
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:::root"
+          "AWS": "arn:aws:iam::<your-account-id-here>:root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -28,7 +28,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:::root"
+          "AWS": "arn:aws:iam::<your-account-id-here>:root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -43,7 +43,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:::root"
+          "AWS": "arn:aws:iam::<your-account-id-here>:root"
         },
         "Action": "sts:AssumeRole"
       }]
@@ -58,7 +58,7 @@ EOF
       "Statement": [{
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:::root"
+          "AWS": "arn:aws:iam::<your-account-id-here>:root"
         },
         "Action": "sts:AssumeRole"
       }]
