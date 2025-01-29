@@ -1,6 +1,6 @@
 vpc_name             = "vpc-for-eks"
 vpc_cidr_range       = "10.0.0.0/16"
-cluster_version      = "1.31"
+cluster_version      = "1.32"
 enable_nat_gateway   = true
 single_nat_gateway   = true
 enable_dns_hostnames = true

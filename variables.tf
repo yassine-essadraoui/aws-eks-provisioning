@@ -85,3 +85,8 @@ variable "cluster_version" {
   type    = string
   default = "1.32"
 }
+
+variable "ebs_csi_addon_version" {
+  type    = string
+  default = "v1.38.1-eksbuild.2"
+}
