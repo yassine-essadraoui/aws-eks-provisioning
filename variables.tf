@@ -48,3 +48,40 @@ variable "iam_roles" {
     iam_assume_role_policy = string
   }))
 }
+
+variable "eks_managed_node_groups" {
+  type = map(object({
+    name           = string
+    instance_types = list(string)
+    min_size       = number
+    max_size       = number
+    desired_size   = number
+  }))
+  default = {
+    ondemand1 = {
+      name           = "mng-1"
+      instance_types = ["t2.micro"]
+      min_size       = 1
+      max_size       = 2
+      desired_size   = 2
+    }
+
+    ondemand2 = {
+      name           = "mng-2"
+      instance_types = ["t2.micro"]
+      min_size       = 1
+      max_size       = 2
+      desired_size   = 2
+    }
+  }
+}
+
+variable "enable_cluster_creator_admin_permissions" {
+  type    = bool
+  default = false
+}
+
+variable "cluster_version" {
+  type    = string
+  default = "1.32"
+}
