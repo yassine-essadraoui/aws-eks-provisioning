@@ -83,7 +83,7 @@ variable "enable_cluster_creator_admin_permissions" {
 
 variable "cluster_version" {
   type    = string
-  default = "1.32"
+  default = "1.33"
 }
 
 variable "ebs_csi_addon_version" {

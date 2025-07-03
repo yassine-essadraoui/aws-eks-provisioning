@@ -1,6 +1,6 @@
 module "irsa-ebs-csi" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc"
-  version = "5.34.0"
+  version = "5.58.0"
 
   create_role                   = true
   role_name                     = "EKS-EBS-CSI-ROLE-${module.eks.cluster_name}"
