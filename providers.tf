@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "tf-state-eks-2024"
+    bucket = "tf-state-eks-2025"
     key    = "eks-tf-state"
-    region = "us-east-1"
+    region = "eu-west-3"
   }
 }
 

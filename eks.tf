@@ -1,9 +1,9 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "20.4.0"
+  version = "20.37.1"
 
   cluster_name    = var.cluster_name
-  cluster_version = "1.29"
+  cluster_version = var.cluster_version
 
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.private_subnets
@@ -26,29 +26,9 @@ module "eks" {
     }
   }
 
-  eks_managed_node_groups = {
-    ondemand1 = {
-      name = "mng-1"
+  eks_managed_node_groups = var.eks_managed_node_groups
 
-      instance_types = ["t2.micro"]
-
-      min_size     = 1
-      max_size     = 2
-      desired_size = 2
-    }
-
-    ondemand2 = {
-      name = "mng-2"
-
-      instance_types = ["t2.micro"]
-
-      min_size     = 1
-      max_size     = 2
-      desired_size = 2
-    }
-  }
-
-  enable_cluster_creator_admin_permissions = true
+  enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
 
   access_entries = {
     # One access entry with a policy associated
